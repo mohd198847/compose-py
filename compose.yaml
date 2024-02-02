@@ -5,7 +5,6 @@ services:
       context: .
       dockerfile: Dockerfile
     image: web-py:latest
-    pull_policy: build
     ports:
       - "8001:5000"
      
