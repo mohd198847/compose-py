@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - COMMIT_ID=$(git rev-parse --short HEAD)
-    image: web-py:${COMMIT_ID}
+        - VERSION=new_vesrion
+    image: web-py:new_version
     ports:
       - "8001:5000"
      
