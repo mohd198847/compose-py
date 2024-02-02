@@ -4,6 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+      args:
+        - VERSION=`date +'%H.%M'`
     image: web-py:${VERSION}
     ports:
       - "8001:5000"
