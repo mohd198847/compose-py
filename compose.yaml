@@ -4,7 +4,9 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: web-python:1.0
+      args:
+        - COMMIT_ID=$(git rev-parse --short HEAD)
+    image: web-py:${COMMIT_ID}
     ports:
       - "8001:5000"
      
