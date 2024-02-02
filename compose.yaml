@@ -4,7 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: web-py:${date +%H}
+    image: web-py:latest
+    pull_policy: build
     ports:
       - "8001:5000"
      
