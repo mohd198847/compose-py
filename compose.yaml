@@ -4,8 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-      tags:
-        - web:1.0
+    tags:
+      - web:1.0
     ports:
       - "8001:5000"
      
