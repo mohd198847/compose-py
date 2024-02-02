@@ -20,4 +20,4 @@ def get_hit_count():
 @app.route('/')
 def hello():
     count = get_hit_count()
-    return 'Hello World! Welcome Saeed Shaikh & Najee Mcgreen have been seen {} times.\n'.format(count)
+    return 'Hello World! Welcome to Saeed Shaikh & Najee Mcgreen to UPwork . Increment value {} .\n'.format(count)
