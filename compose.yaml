@@ -4,9 +4,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-      args:
-        - VERSION=new_vesrion
-    image: web-py:new_version
+    image: web-py:${VERSION}
     ports:
       - "8001:5000"
      
