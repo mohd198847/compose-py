@@ -5,4 +5,4 @@ services:
     ports:
       - "8001:5000"
   redis:
-    image: "redis:alpine"
+    image: "redis:latest"
