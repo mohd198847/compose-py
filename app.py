@@ -1,23 +1,12 @@
-import time
+import http.server
+import socketserver
+from http import HTTPStatus
 
-import redis
-from flask import Flask
+class Handler(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(HTTPStatus.OK)
+        self.end_headers()
+        self.wfile.write(b'I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison 00')
 
-app = Flask(__name__)
-cache = redis.Redis(host='redis', port=6379)
-
-def get_hit_count():
-    retries = 5
-    while True:
-        try:
-            return cache.incr('hits')
-        except redis.exceptions.ConnectionError as exc:
-            if retries == 0:
-                raise exc
-            retries -= 1
-            time.sleep(0.5)
-
-@app.route('/')
-def hello():
-    count = get_hit_count()
-    return 'Hello World! Welcome to Saeed Shaikh & Najee Mcgreen to UPwork . Increment value {} .\n'.format(count)
+httpd = socketserver.TCPServer(('', 5000), Handler)
+httpd.serve_forever()
